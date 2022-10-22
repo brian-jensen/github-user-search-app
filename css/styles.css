@@ -138,9 +138,9 @@ body.dark .search {
   font-size: 13px;
   line-height: 25px;
 }
-
 .search::placeholder {
   color: var(--color-primary-text);
+  opacity: 1;
 }
 
 .search-btn {
@@ -182,6 +182,7 @@ body.dark .card {
 
 .user-info {
   margin-left: 19px;
+  color: var(--color-primary-accent);
 }
 
 .user-name {
@@ -197,8 +198,8 @@ body.dark .card {
 }
 
 .user-account {
+  display: inline-block;
   margin-bottom: 6px;
-  color: var(--color-primary-accent);
 }
 
 .user-join {
@@ -270,4 +271,122 @@ body.dark .card {
 
 .location p {
   margin-left: 19px;
+}
+
+@media (min-width: 48em) {
+  .ui {
+    padding: 0 98px;
+  }
+  
+  .search {
+    height: 69px;
+    padding-left: 80px;
+    background: var(--color-secondary-bg) url(../assets/icon-search.svg) no-repeat 32px center/24px;
+  }
+
+  .search, .search::placeholder {
+    font-size: 18px;
+    line-height: 25px;
+  }
+
+  .search-btn {
+    height: 50px;
+    width: 106px;
+    right: 10px;
+    top: 9.5px;
+    font-size: 16px;
+    line-height: 24px;
+  }
+
+  .card {
+    padding: 40px;
+  }
+
+  .user-img {
+    height: 117px;
+    width: 117px;
+  }
+
+  .user-info {
+    margin-left: 41px;
+  }
+
+  .user-name {
+    font-size: 26px;
+    line-height: 39px;
+  }
+
+  .user-account {
+    font-size: 16px;
+    line-height: 24px;
+  }
+
+  .user-join, .bio p {
+    font-size: 15px;
+    line-height: 22px;
+  }
+
+  .bio  {
+    margin-bottom: 32px;
+  }
+
+  .stats {
+    justify-content: space-between;
+    align-items: center;
+    text-align: left;
+    padding: 16px 96px 16px 32px;
+    margin-bottom: 30px;
+  }
+  
+  .stat-label {
+    font-size: 13px;
+    line-height: 19px;
+    margin-bottom: 1px;
+  }
+
+  .stat-number {
+    font-size: 22px;
+    line-height: 33px;
+  }
+
+  .social ul {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-areas:
+      "g1 g2"
+      "g3 g4";
+    gap: 16px;
+  }
+
+  .g1 {
+    grid-area: g1;
+  }
+
+  .g2 {
+    grid-area: g2;
+  }
+
+  .g3 {
+    grid-area: g3;
+  }
+
+  .g4 {
+    grid-area: g4;
+  }
+
+  .social li + li {
+    margin-top: 0;
+  }
+
+  .social a p, .location p, .company p, .location path, .blog-link g, .twitter-link path, .company g {
+    font-size: 15px;
+    line-height: 22px;
+    margin-left: 16px;
+  }
+
+  .location p {
+    margin-left: 22px;
+  }
+
+
 }
