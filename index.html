@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,16 +8,86 @@
   <link rel="icon" type="image/png" sizes="32x32" href="./assets/favicon-32x32.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&display=swap" rel="stylesheet"> 
+  <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
   <title>Frontend Mentor | GitHub user search app</title>
   <link rel="stylesheet" href="./css/normalize.css">
   <link rel="stylesheet" href="./css/styles.css">
 </head>
+
 <body>
   <div class="wrapper">
-    
+    <div class="ui">
+      <header>
+        <div class="header-top">
+          <h1 class="logo">devfinder</h1>
+          <button class="toggle-theme-btn">dark
+            <svg width="20" height="20" xmlns="http://www.w3.org/2000/svg">
+              <path
+                d="M19.513 11.397a.701.701 0 00-.588.128 7.496 7.496 0 01-2.276 1.336 7.101 7.101 0 01-2.583.462 7.505 7.505 0 01-5.32-2.209 7.568 7.568 0 01-2.199-5.342c0-.873.154-1.72.41-2.49a6.904 6.904 0 011.227-2.21.657.657 0 00-.102-.924.701.701 0 00-.589-.128C5.32.61 3.427 1.92 2.072 3.666A10.158 10.158 0 000 9.83c0 2.8 1.125 5.342 2.967 7.19a10.025 10.025 0 007.16 2.98c2.353 0 4.527-.822 6.266-2.183a10.13 10.13 0 003.58-5.624.623.623 0 00-.46-.796z"
+                fill="#697C9A" fill-rule="nonzero" />
+            </svg>
+          </button>
+        </div>
+        <form class="search-form">
+          <input class="search" type="text" placeholder="Search GitHub username&mldr;">
+          <button class="search-btn">Search</button>
+        </form>
+      </header>
+      <main class="card">
+        <section class="user">
+          <img class="user-img" src="./assets/octo.png" alt="octocat illustration">
+          <div class="user-info">
+            <h3 class="user-name">The Octocat</h3>
+            <p class="user-account">&#64;octocat</p>
+            <p class="user-join">Joined 25 Jan 2011</p>
+          </div>
+        </section>
+        <aside class="bio">
+          <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio. Quisque volutpat mattis eros.</p>
+        </aside>
+        <section class="stats">
+          <div class="stat">
+            <p class="stat-label">Repos</p>
+            <h4 class="stat-number">8</h4>
+          </div>
+          <div class="stat">
+            <p class="stat-label">Followers</p>
+            <h4 class="stat-number">3983</h4>
+          </div>
+          <div class="stat">
+            <p class="stat-label">Following</p>
+            <h4 class="stat-number">9</h4>
+          </div>
+        </section>
+        <footer class="social">
+          <ul>
+            <li class="location">
+              <img src="./assets/icon-location.svg" alt="map marker">
+              <p>San Francisco</p>
+            </li>
+            <li>
+              <a href="https://github.blog/" class="blog-link">
+                <img src="./assets/icon-website.svg" alt="chain icon">
+                <p>https://github.blog</p>
+              </a>
+            </li>
+            <li>
+              <a href="#top" class="twitter-link">
+                <img src="./assets/icon-twitter.svg" alt="twitter logo">
+                <p>Not Available</p>
+              </a>
+            </li>
+            <li class="company">
+              <img src="./assets/icon-company.svg" alt="office building icon">
+              <p>@github</p>
+            </li>
+          </ul>
+        </footer>
+      </main>
+    </div>
   </div>
-  
+
   <script src="./js/app.js"></script>
 </body>
+
 </html>
