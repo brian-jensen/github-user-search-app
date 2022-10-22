@@ -41,12 +41,22 @@ body {
   --color-secondary-text: #697C9A;
   --color-primary-heading: #222731;
   --color-secondary-heading: #2B3442;
+  --color-primary-btn: #FFFFFF;
   --color-primary-accent: #0079FF;
   --color-secondary-accent: #60ABFF;
   --color-error: #F74646;
   font-family: var(--font-primary);
   font-weight: 400;
   background-color: var(--color-primary-bg);
+}
+
+body.dark {
+  --color-primary-bg: #141D2F;
+  --color-secondary-bg: #1E2A47;
+  --color-primary-text: #FFFFFF;
+  --color-secondary-text: #FFFFFF;
+  --color-primary-heading: #FFFFFF;
+  --color-secondary-heading: #FFFFFF;
 }
 
 h1,
@@ -119,6 +129,10 @@ button {
   border-radius: 15px;
 }
 
+body.dark .search {
+  box-shadow: none;
+}
+
 .search,
 .search::placeholder {
   font-size: 13px;
@@ -137,7 +151,7 @@ button {
   width: 84px;
   font-size: 14px;
   line-height: 21px;
-  color: var(--color-secondary-bg);
+  color: var(--color-primary-btn);
   background: var(--color-primary-accent);
   border-radius: 10px;
   cursor: pointer;
@@ -148,6 +162,10 @@ button {
   box-shadow: 0px 16px 30px -10px rgba(70, 96, 187, 0.198567);
   border-radius: 15px;
   background-color: var(--color-secondary-bg);
+}
+
+body.dark .card {
+  box-shadow: none;
 }
 
 .user {
@@ -238,9 +256,14 @@ button {
 
 .social a p,
 .location p,
-.company p {
+.company p,
+.location path,
+.blog-link g,
+.twitter-link path,
+.company g {
   font-size: 13px;
   line-height: 19px;
+  fill: var(--color-primary-text);
   color: var(--color-primary-text);
   margin-left: 13px;
 }
