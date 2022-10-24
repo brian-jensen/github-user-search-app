@@ -138,9 +138,21 @@ body.dark .search {
   font-size: 13px;
   line-height: 25px;
 }
+
 .search::placeholder {
   color: var(--color-primary-text);
   opacity: 1;
+}
+
+.search.error {
+  border: 1px solid var(--color-error);
+}
+
+.search.error::placeholder {
+  font-weight: 700;
+  text-align: right;
+  padding-right: 110px;
+  color: var(--color-error);
 }
 
 .search-btn {
@@ -216,6 +228,11 @@ body.dark .card {
   color: var(--color-primary-text);
 }
 
+.bio p.no-bio {
+  opacity: 0.75;
+}
+
+
 .stats {
   display: flex;
   justify-content: space-around;
@@ -240,8 +257,21 @@ body.dark .card {
   color: var(--color-secondary-heading);
 }
 
+.social li p,
+.social li a {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 300px;
+}
+
 .social li.not-available {
   opacity: 0.5;
+}
+
+.social li.not-available a {
+  pointer-events: none;
+  cursor: not-allowed;
 }
 
 .social a,
@@ -251,7 +281,7 @@ body.dark .card {
   align-items: center;
 }
 
-.social li + li {
+.social li+li {
   margin-top: 16px;
 }
 
@@ -275,18 +305,30 @@ body.dark .card {
 
 @media (min-width: 48em) {
   .ui {
-    padding: 0 98px;
+    display: grid;
+    grid-template-columns: repeat(1, max-content);
+    justify-content: center;
+    padding: 0;
   }
   
+  .search-form {
+    margin-bottom: 24px;
+  }
+
   .search {
     height: 69px;
     padding-left: 80px;
     background: var(--color-secondary-bg) url(../assets/icon-search.svg) no-repeat 32px center/24px;
   }
 
-  .search, .search::placeholder {
+  .search,
+  .search::placeholder {
     font-size: 18px;
     line-height: 25px;
+  }
+
+  .search.error::placeholder {
+    padding-right: 140px;
   }
 
   .search-btn {
@@ -321,13 +363,15 @@ body.dark .card {
     line-height: 24px;
   }
 
-  .user-join, .bio p {
+  .user-join,
+  .bio p {
     font-size: 15px;
     line-height: 22px;
   }
 
-  .bio  {
+  .bio {
     margin-bottom: 32px;
+    max-width: 500px;
   }
 
   .stats {
@@ -337,7 +381,7 @@ body.dark .card {
     padding: 16px 96px 16px 32px;
     margin-bottom: 30px;
   }
-  
+
   .stat-label {
     font-size: 13px;
     line-height: 19px;
@@ -349,13 +393,19 @@ body.dark .card {
     line-height: 33px;
   }
 
+  .social li p,
+  .social li a {
+    max-width: 375px;
+  }
+
   .social ul {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(2, max-content);
     grid-template-areas:
       "g1 g2"
       "g3 g4";
-    gap: 16px;
+      row-gap: 15px;
+      column-gap: 65px;
   }
 
   .g1 {
@@ -374,11 +424,17 @@ body.dark .card {
     grid-area: g4;
   }
 
-  .social li + li {
+  .social li+li {
     margin-top: 0;
   }
 
-  .social a p, .location p, .company p, .location path, .blog-link g, .twitter-link path, .company g {
+  .social a p,
+  .location p,
+  .company p,
+  .location path,
+  .blog-link g,
+  .twitter-link path,
+  .company g {
     font-size: 15px;
     line-height: 22px;
     margin-left: 16px;
@@ -388,5 +444,61 @@ body.dark .card {
     margin-left: 22px;
   }
 
+}
+
+@media (min-width: 64rem) {
+
+  .card {
+    padding: 48px 48px 48px 202px;
+    position: relative;
+  }
+
+  .user-img {
+    position: absolute;
+    top: 48px;
+    left: 48px;
+  }
+
+  .user-info {
+    display: grid;
+    grid-template-columns: repeat(2, max-content);
+    justify-content: space-between;
+    column-gap: 50px;
+    margin-left: 0;
+  }
+
+  .user {
+    display: block;
+    margin-bottom: 20px;
+  }
+
+  .user-name{
+    flex-basis: 50%;
+    flex-grow: 1;
+  }
+
+  .user-account {
+    order: 2;
+    margin: 0;
+  }
+
+  .user-join {
+    align-self: center;
+  }
+
+  .stats {
+    margin-bottom: 40px;
+    padding-right: 83px;
+  }
+
+  .social li p,
+  .social li a {
+    max-width: 500px;
+  }
+
+  .social ul {
+    row-gap: 24px;
+    column-gap: 62px;
+  }
 
 }
