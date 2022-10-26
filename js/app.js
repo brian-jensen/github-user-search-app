@@ -34,6 +34,9 @@ themeToggle.addEventListener('click', () => {
 if (dark) {
   body.classList.add('dark');
   toggleHeaderTheme();
+} else {
+  body.classList.remove('dark');
+  toggleHeaderTheme();
 }
 
 const url = 'https://api.github.com/users/';
@@ -154,20 +157,20 @@ const handleData = data => {
     bioText.classList.toggle('no-bio');
   }
 
-  socials.forEach(social => {
-    if (social.textContent === 'null' || social.textContent === '') {
-      social.closest('li').classList.toggle('not-available');
-      social.textContent = 'Not Available';
-    }
-  });
- 
-  if (!company.includes('@')) {
+  if (!company || !company.includes('@')) {
     const a = document.querySelector('.company');
     a.removeAttribute('href');
     a.removeAttribute('target');
     a.style.textDecoration = 'none';
     a.parentElement.pointerEvents = 'none';
   }
+
+  socials.forEach(social => {
+    if (social.textContent === 'null' || social.textContent === '') {
+      social.closest('li').classList.toggle('not-available');
+      social.textContent = 'Not Available';
+    }
+  });
 
 }
 

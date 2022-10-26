@@ -35,28 +35,28 @@ ol {
 }
 
 body {
-  --color-primary-bg: #F6F8FF;
-  --color-secondary-bg: #FEFEFE;
-  --color-primary-text: #4B6A9B;
-  --color-secondary-text: #697C9A;
-  --color-primary-heading: #222731;
-  --color-secondary-heading: #2B3442;
-  --color-primary-btn: #FFFFFF;
-  --color-primary-accent: #0079FF;
-  --color-secondary-accent: #60ABFF;
-  --color-error: #F74646;
+  --color-primary-bg: hsl(226.7, 100%, 98.2%);
+  --color-secondary-bg: hsl(0, 0%, 99.6%);
+  --color-primary-text: hsl(216.8, 34.8%, 45.1%);
+  --color-secondary-text: hsl(216.7, 19.5%, 50.8%);
+  --color-primary-heading: hsl(220, 18.1%, 16.3%);
+  --color-secondary-heading: hsl(216.5, 21.1%, 21.4%);
+  --color-primary-btn: hsl(0, 0%, 100%);
+  --color-primary-accent: hsl(211.5, 100%, 50%);
+  --color-secondary-accent: hsl(211.7, 100%, 68.8%);
+  --color-error: hsl(0, 91.7%, 62.2%);
   font-family: var(--font-primary);
   font-weight: 400;
   background-color: var(--color-primary-bg);
 }
 
 body.dark {
-  --color-primary-bg: #141D2F;
-  --color-secondary-bg: #1E2A47;
-  --color-primary-text: #FFFFFF;
-  --color-secondary-text: #FFFFFF;
-  --color-primary-heading: #FFFFFF;
-  --color-secondary-heading: #FFFFFF;
+  --color-primary-bg: hsl(220, 40.3%, 13.1%);
+  --color-secondary-bg: hsl(222.4, 40.6%, 19.8%);
+  --color-primary-text: hsl(0, 0%, 100%);
+  --color-secondary-text: hsl(0, 0%, 100%);
+  --color-primary-heading: hsl(0, 0%, 100%);
+  --color-secondary-heading: hsl(0, 0%, 100%);
 }
 
 h1,
@@ -94,16 +94,16 @@ button {
 
 .logo {
   margin: 0;
-  font-size: 26px;
-  line-height: 39px;
+  font-size: 1.625rem;
+  line-height: 2.4375rem;
   color: var(--color-primary-heading);
 }
 
 .header-top button {
-  font-size: 13px;
-  line-height: 19px;
+  font-size: 0.8125rem;
+  line-height: 1.1875rem;
   text-align: right;
-  letter-spacing: 2.5px;
+  letter-spacing: 0.1563rem;
   text-transform: uppercase;
   color: var(--color-primary-text);
   cursor: pointer;
@@ -119,7 +119,7 @@ button {
 }
 
 .search {
-  height: 60px;
+  height: 3.75rem;
   width: 100%;
   padding-left: 43px;
   color: var(--color-primary-heading);
@@ -132,10 +132,10 @@ button {
 form.error::before {
   content: 'No results';
   position: absolute;
-  right: 100px;
-  top: 17.5px;
-  font-size: 13px;
-  line-height: 25px;
+  right: 6.25rem;
+  top: 1.0938rem;
+  font-size: 0.8125rem;
+  line-height: 1.5625rem;
   font-weight: 700;
   color: var(--color-error);
   background-color: var(--color-secondary-bg);
@@ -147,8 +147,8 @@ body.dark .search {
 
 .search,
 .search::placeholder {
-  font-size: 13px;
-  line-height: 25px;
+  font-size: 0.8125rem;
+  line-height: 1.5625rem;
 }
 
 .search::placeholder {
@@ -158,12 +158,12 @@ body.dark .search {
 
 .search-btn {
   position: absolute;
-  right: 7px;
-  top: 7px;
-  height: 46px;
-  width: 84px;
-  font-size: 14px;
-  line-height: 21px;
+  right: 0.4375rem;
+  top: 0.4375rem;
+  height: 2.875rem;
+  width: 5.25rem;
+  font-size: 0.875rem;
+  line-height: 1.3125rem;
   color: var(--color-primary-btn);
   background: var(--color-primary-accent);
   border-radius: 10px;
@@ -199,15 +199,15 @@ body.dark .card {
 }
 
 .user-name {
-  font-size: 16px;
-  line-height: 24px;
+  font-size: 1rem;
+  line-height: 1.5rem;
   color: var(--color-secondary-heading);
 }
 
 .user-account,
 .user-join {
-  font-size: 13px;
-  line-height: 19px;
+  font-size: 0.8125rem;
+  line-height: 1.1875rem;
 }
 
 .user-account {
@@ -224,8 +224,8 @@ body.dark .card {
 }
 
 .bio p {
-  font-size: 13px;
-  line-height: 25px;
+  font-size: 0.8125rem;
+  line-height: 1.5625rem;
   color: var(--color-primary-text);
 }
 
@@ -246,15 +246,15 @@ body.dark .card {
 }
 
 .stat-label {
-  font-size: 11px;
-  line-height: 16px;
+  font-size: 0.6875rem;
+  line-height: 1rem;
   margin-bottom: 8px;
   color: var(--color-primary-text);
 }
 
 .stat-number {
-  font-size: 16px;
-  line-height: 24px;
+  font-size: 1rem;
+  line-height: 1.5rem;
   color: var(--color-secondary-heading);
 }
 
@@ -263,7 +263,7 @@ body.dark .card {
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
-  max-width: 300px;
+  max-width: 18.75rem;
 }
 
 .social li.not-available {
@@ -293,8 +293,8 @@ body.dark .card {
 .blog-link g,
 .twitter-link path,
 .company g {
-  font-size: 13px;
-  line-height: 19px;
+  font-size: 0.8125rem;
+  line-height: 1.1875rem;
   fill: var(--color-primary-text);
   color: var(--color-primary-text);
   margin-left: 13px;
@@ -334,9 +334,11 @@ svg path {
   .search-btn:hover {
     background-color: var(--color-secondary-accent);
   }
+
   footer {
     color: var(--color-primary-text);
   }
+
   .social a:hover {
     color: var(--color-primary-text);
     text-decoration: underline;
@@ -356,31 +358,31 @@ svg path {
   }
 
   .search {
-    height: 69px;
+    height: 4.3125rem;
     padding-left: 80px;
     background: var(--color-secondary-bg) url(../assets/icon-search.svg) no-repeat 32px center/24px;
   }
 
   .search,
   .search::placeholder {
-    font-size: 18px;
-    line-height: 25px;
+    font-size: 1.125rem;
+    line-height: 1.5625rem;
   }
 
   form.error::before {
-    top: 22px;
-    right: 130px;
-    font-size: 18px;
-    line-height: 25px;
+    top: 1.375rem;
+    right: 8.125rem;
+    font-size: 1.125rem;
+    line-height: 1.5625rem;
   }
 
   .search-btn {
-    height: 50px;
-    width: 106px;
-    right: 10px;
-    top: 9.5px;
-    font-size: 16px;
-    line-height: 24px;
+    height: 3.125rem;
+    width: 6.625rem;
+    right: 0.625rem;
+    top: 0.5938rem;
+    font-size: 1rem;
+    line-height: 1.5rem;
   }
 
   .card {
@@ -397,24 +399,24 @@ svg path {
   }
 
   .user-name {
-    font-size: 26px;
-    line-height: 39px;
+    font-size: 1.625rem;
+    line-height: 2.4375rem;
   }
 
   .user-account {
-    font-size: 16px;
-    line-height: 24px;
+    font-size: 1rem;
+    line-height: 1.5rem;
   }
 
   .user-join,
   .bio p {
-    font-size: 15px;
-    line-height: 22px;
+    font-size: 0.9375rem;
+    line-height: 1.375rem;
   }
 
   .bio {
     margin-bottom: 32px;
-    max-width: 500px;
+    max-width: 31.25rem;
   }
 
   .stats {
@@ -426,19 +428,19 @@ svg path {
   }
 
   .stat-label {
-    font-size: 13px;
-    line-height: 19px;
+    font-size: 0.8125rem;
+    line-height: 1.1875rem;
     margin-bottom: 1px;
   }
 
   .stat-number {
-    font-size: 22px;
-    line-height: 33px;
+    font-size: 1.375rem;
+    line-height: 2.0625rem;
   }
 
   .social li p,
   .social li a {
-    max-width: 375px;
+    max-width: 23.4375rem;
   }
 
   .social ul {
@@ -478,8 +480,8 @@ svg path {
   .blog-link g,
   .twitter-link path,
   .company g {
-    font-size: 15px;
-    line-height: 22px;
+    font-size: 0.9375rem;
+    line-height: 1.375rem;
     margin-left: 16px;
   }
 
@@ -492,7 +494,7 @@ svg path {
 @media (min-width: 64rem) {
 
   form.error::before {
-    right: 140px;
+    right: 8.75rem;
   }
 
   .card {
@@ -502,8 +504,8 @@ svg path {
 
   .user-img {
     position: absolute;
-    top: 48px;
-    left: 48px;
+    top: 3rem;
+    left: 3rem;
   }
 
   .user-info {
@@ -540,7 +542,7 @@ svg path {
 
   .social li p,
   .social li a {
-    max-width: 500px;
+    max-width: 31.25rem;
   }
 
   .social ul {
