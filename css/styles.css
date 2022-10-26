@@ -129,6 +129,18 @@ button {
   border-radius: 15px;
 }
 
+form.error::before {
+  content: 'No results';
+  position: absolute;
+  right: 100px;
+  top: 17.5px;
+  font-size: 13px;
+  line-height: 25px;
+  font-weight: 700;
+  color: var(--color-error);
+  background-color: var(--color-secondary-bg);
+}
+
 body.dark .search {
   box-shadow: none;
 }
@@ -142,17 +154,6 @@ body.dark .search {
 .search::placeholder {
   color: var(--color-primary-text);
   opacity: 1;
-}
-
-.search.error {
-  border: 1px solid var(--color-error);
-}
-
-.search.error::placeholder {
-  font-weight: 700;
-  text-align: right;
-  padding-right: 110px;
-  color: var(--color-error);
 }
 
 .search-btn {
@@ -303,6 +304,45 @@ body.dark .card {
   margin-left: 19px;
 }
 
+/* transitions */
+body,
+.search,
+.search-btn {
+  transition: background-color 0.5s linear;
+}
+
+.card {
+  transition: background-color .75s ease;
+}
+
+.ui h1,
+.ui h2,
+.ui h3,
+.ui h4,
+.card p,
+.card a,
+.card li {
+  transition: color 1s ease-in-out
+}
+
+svg path {
+  transition: fill 1s ease-in-out
+}
+
+/* hover states */
+@media (hover: hover) {
+  .search-btn:hover {
+    background-color: var(--color-secondary-accent);
+  }
+  footer {
+    color: var(--color-primary-text);
+  }
+  .social a:hover {
+    color: var(--color-primary-text);
+    text-decoration: underline;
+  }
+}
+
 @media (min-width: 48em) {
   .ui {
     display: grid;
@@ -310,7 +350,7 @@ body.dark .card {
     justify-content: center;
     padding: 0;
   }
-  
+
   .search-form {
     margin-bottom: 24px;
   }
@@ -327,8 +367,11 @@ body.dark .card {
     line-height: 25px;
   }
 
-  .search.error::placeholder {
-    padding-right: 140px;
+  form.error::before {
+    top: 22px;
+    right: 130px;
+    font-size: 18px;
+    line-height: 25px;
   }
 
   .search-btn {
@@ -404,8 +447,8 @@ body.dark .card {
     grid-template-areas:
       "g1 g2"
       "g3 g4";
-      row-gap: 15px;
-      column-gap: 65px;
+    row-gap: 15px;
+    column-gap: 65px;
   }
 
   .g1 {
@@ -448,6 +491,10 @@ body.dark .card {
 
 @media (min-width: 64rem) {
 
+  form.error::before {
+    right: 140px;
+  }
+
   .card {
     padding: 48px 48px 48px 202px;
     position: relative;
@@ -472,7 +519,7 @@ body.dark .card {
     margin-bottom: 20px;
   }
 
-  .user-name{
+  .user-name {
     flex-basis: 50%;
     flex-grow: 1;
   }

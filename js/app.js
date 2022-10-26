@@ -1,5 +1,6 @@
 const body = document.body;
 const themeToggle = document.querySelector('header .toggle-theme-btn');
+const dark = window.matchMedia("(prefers-color-scheme: dark)").matches;
 const search = document.querySelector('.search');
 
 const toggleHeaderTheme = () => {
@@ -30,19 +31,21 @@ themeToggle.addEventListener('click', () => {
   toggleHeaderTheme();
 });
 
+if (dark) {
+  body.classList.add('dark');
+  toggleHeaderTheme();
+}
+
 const url = 'https://api.github.com/users/';
 
 const handleFetch = async username => {
   try {
     const response = await fetch(`${url}${username}`);
     if (response.status === 404) {
-      search.classList.add('error');
-      search.value = '';
-      search.placeholder = 'No Results';
-      throw new Error('User not found');
+      form.classList.add('error');
+      throw new Error('No Results');
     } else {
-      search.classList.remove('error');
-      search.placeholder = 'Search GitHub username…';
+      form.classList.remove('error');
     }
     const data = await response.json();
     if (data.message) {
@@ -57,8 +60,14 @@ const handleFetch = async username => {
 const card = document.querySelector('.card');
 
 const handleData = data => {
-  const {login, avatar_url, html_url, name, created_at, company, blog, location, bio, twitter_username, public_repos, followers, following} = data;
+  let {login, avatar_url, html_url, name, created_at, company, blog, location, bio, twitter_username, public_repos, followers, following} = data;
   const date = new Date(created_at);
+
+  if (blog) {
+    if (!blog.includes('http') || !blog.includes('https')) {
+      blog = `https://${blog}`;
+    } 
+  }
 
   card.innerHTML = `
     <section class="user">
@@ -98,7 +107,7 @@ const handleData = data => {
           <p>${location}</p>
         </li>
         <li class="g3">
-          <a href="${blog ? blog : ''}" class="blog-link">
+          <a href="${blog ? blog : ''}" class="blog-link" target="_blank">
             <svg height="20" width="20" xmlns="http://www.w3.org/2000/svg">
               <title>Chain Link Icon</title>
               <g fill="#4b6a9b">
@@ -122,15 +131,17 @@ const handleData = data => {
             <p>${twitter_username}</p>
           </a>
         </li>
-        <li class="g4 company">
-          <svg height="20" width="20" xmlns="http://www.w3.org/2000/svg">
-            <title>Skyscraper Icon</title>
-            <g fill="#4b6a9b">
-              <path
-                d="M10.858 1.558L1.7.167A1.477 1.477 0 00.517.492 1.49 1.49 0 000 1.608v17.559c0 .458.375.833.833.833h2.709v-4.375c0-.808.65-1.458 1.458-1.458h2.083c.809 0 1.459.65 1.459 1.458V20h3.541V3a1.46 1.46 0 00-1.225-1.442zM4.583 12.292h-1.25a.625.625 0 010-1.25h1.25a.625.625 0 010 1.25zm0-2.5h-1.25a.625.625 0 010-1.25h1.25a.625.625 0 010 1.25zm0-2.5h-1.25a.625.625 0 010-1.25h1.25a.625.625 0 010 1.25zm0-2.5h-1.25a.625.625 0 010-1.25h1.25a.625.625 0 010 1.25zm4.167 7.5H7.5a.625.625 0 010-1.25h1.25a.625.625 0 010 1.25zm0-2.5H7.5a.625.625 0 010-1.25h1.25a.625.625 0 010 1.25zm0-2.5H7.5a.625.625 0 010-1.25h1.25a.625.625 0 010 1.25zm0-2.5H7.5a.625.625 0 010-1.25h1.25a.625.625 0 010 1.25zM18.85 9.035l-5.933-1.242V20h5.625A1.46 1.46 0 0020 18.542V10.46c0-.688-.47-1.274-1.15-1.425zM16.875 17.5h-1.25a.625.625 0 010-1.25h1.25a.625.625 0 010 1.25zm0-2.5h-1.25a.625.625 0 010-1.25h1.25a.625.625 0 010 1.25zm0-2.5h-1.25a.625.625 0 010-1.25h1.25a.625.625 0 010 1.25z" />
-            </g>
-          </svg>
-          <p>${company}</p>
+        <li class="g4">
+          <a class="company" href=https://github.com/${company && company.includes('@') ? company.replace('@', '') : ''} target="_blank">
+            <svg height="20" width="20" xmlns="http://www.w3.org/2000/svg">
+              <title>Skyscraper Icon</title>
+              <g fill="#4b6a9b">
+                <path
+                  d="M10.858 1.558L1.7.167A1.477 1.477 0 00.517.492 1.49 1.49 0 000 1.608v17.559c0 .458.375.833.833.833h2.709v-4.375c0-.808.65-1.458 1.458-1.458h2.083c.809 0 1.459.65 1.459 1.458V20h3.541V3a1.46 1.46 0 00-1.225-1.442zM4.583 12.292h-1.25a.625.625 0 010-1.25h1.25a.625.625 0 010 1.25zm0-2.5h-1.25a.625.625 0 010-1.25h1.25a.625.625 0 010 1.25zm0-2.5h-1.25a.625.625 0 010-1.25h1.25a.625.625 0 010 1.25zm0-2.5h-1.25a.625.625 0 010-1.25h1.25a.625.625 0 010 1.25zm4.167 7.5H7.5a.625.625 0 010-1.25h1.25a.625.625 0 010 1.25zm0-2.5H7.5a.625.625 0 010-1.25h1.25a.625.625 0 010 1.25zm0-2.5H7.5a.625.625 0 010-1.25h1.25a.625.625 0 010 1.25zm0-2.5H7.5a.625.625 0 010-1.25h1.25a.625.625 0 010 1.25zM18.85 9.035l-5.933-1.242V20h5.625A1.46 1.46 0 0020 18.542V10.46c0-.688-.47-1.274-1.15-1.425zM16.875 17.5h-1.25a.625.625 0 010-1.25h1.25a.625.625 0 010 1.25zm0-2.5h-1.25a.625.625 0 010-1.25h1.25a.625.625 0 010 1.25zm0-2.5h-1.25a.625.625 0 010-1.25h1.25a.625.625 0 010 1.25z" />
+              </g>
+            </svg>
+            <p>${company}</p>
+          </a>
         </li>
       </ul>
     </footer>
@@ -149,6 +160,14 @@ const handleData = data => {
       social.textContent = 'Not Available';
     }
   });
+ 
+  if (!company.includes('@')) {
+    const a = document.querySelector('.company');
+    a.removeAttribute('href');
+    a.removeAttribute('target');
+    a.style.textDecoration = 'none';
+    a.parentElement.pointerEvents = 'none';
+  }
 
 }
 
